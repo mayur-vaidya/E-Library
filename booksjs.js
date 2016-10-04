@@ -28,7 +28,8 @@ function loadDoc(){
         console.log(total);
         // console.log(total);
         //console.log(typeof(total));
-        tile = "<div class='col-md-3 col-sm-6 col-xs-12' style='padding-right:0px;padding-bottom:0px;padding-top:15px;'>";
+
+      /*  tile = "<div class='col-md-3 col-sm-6 col-xs-12' style=';padding-right:0px;padding-bottom:0px;padding-top:15px;'>";
         for(var j = 0; j < books.length; j++){
           if(j != 0){
             tile += "<div class='col-md-3 col-sm-6 col-xs-12' style='padding-right:0px;padding-bottom:0px;padding-top:15px;'>";
@@ -52,7 +53,75 @@ function loadDoc(){
         tile += "<div class='col-xs-12'>";
         tile += "<div align='center'><button type='button' class='next' onclick='previousPage()'> Previous</button>";
         tile +=  "<button type='button' class='next' onclick='nextPage()'> Next</button></div></div>"
-          document.getElementById("book1").innerHTML = tile;
+        */
+
+
+
+
+
+//       tile =  "<div class='card-columns' style='margin-top:30px;margin-left:20px;'>";
+//
+//       for(var j = 0; j < books.length; j++){
+//       tile += "<div class='card'>";
+//       tile += "<div class='card-block'>";
+//       tile += "<img class='card-img-top tile-image' src='";
+//       tile += books[j].Image;
+//       tile +=  "' alt='No image found'>";
+//       tile += "<h4 class='card-title'>";
+//       tile += books[j].Title;
+//       tile +="</h4>";
+//       tile += "<p class='card-text'>";
+//       tile += books[j].SubTitle;
+//       tile += "</p>";
+//       tile += "<div class='full-description-button'><button type='button' onclick='modals(";
+//       tile += j;
+//       tile += ")' class='btn btn-primary full-description' data-toggle='modal' data-target='#myModal'> Full Desciption </button></div>";
+//       tile += "<div id='modals'></div>";
+//       tile += "</div></div>";
+// }
+//   tile+="</div>";
+//   tile += "<div class='col-xs-12'>";
+//   tile += "<div align='center'><button type='button' class='next' onclick='previousPage()'> Previous</button>";
+//   tile +=  "<button type='button' class='next' onclick='nextPage()'> Next</button></div></div>"
+
+var tiles = [];
+for(var i = 0; i < books.length; i++){
+  tile = "<div class='tile'>";
+  tile += "<img class='tile-image' src='";
+  tile += books[i].Image;
+  tile += "'/>";
+  tile += "<h4 class='tile-heading'>";
+  tile += books[i].Title;
+  tile += "</h4>";
+  tile += "<p class='tile-content'>";
+  tile += books[i].SubTitle;
+  tile +="</p>"
+  tile += "<div class='full-description-button'><button type='button' onclick='modals(";
+  tile += i;
+  tile += ")' class='btn btn-primary full-description' data-toggle='modal' data-target='#myModal'> Full Desciption </button></div></div>";
+  tile += "<div id='modals'></div>";
+  tiles[i] = tile;
+}
+
+//console.log(tiles.length);
+var e = 1;
+
+var node = ["","",""];
+for(var k = 0, a = 0; k < tiles.length; k++, a++)
+{ if(a == 3){a = 0;}
+  node[a] += tiles[k];
+}
+//console.log(node[2]);
+
+for(var l = 0; l < node.length; l++, e++){
+  var d = "column";
+  d = d + e;
+  var completeTile = node[l];
+  //console.log(completeTile);
+  document.getElementById(d).innerHTML = completeTile;
+  //e++;
+}
+      //    document.getElementById("book1").innerHTML = tile;
           //console.log(m);
       }
     }
@@ -65,6 +134,7 @@ function loadDoc(){
 
 function nextPage(){
   if(page < total){
+
     page += 1;
     loadDoc();
     console.log(page);
@@ -95,9 +165,11 @@ var modals = function(modalName) {
   modal +="<h4 class='modal-title detailing'>";
   modal += books[sequence].Title;
   modal += "</h4></div>";
-  modal += "<div class='modal-body detailing'><p>";
-  modal += books[sequence].Description;
-  modal += "&hellip;</p>";
-  modal += "</div></div>";
+  modal += "<div class='modal-body detailing'>";
+  modal += books[sequence].Description + "</div>";
+  modal += "<div align='center'><img src='";
+  modal += books[sequence].Image;
+  modal += "'></div>";
+  modal += "</div>";
   document.getElementById("modals").innerHTML = modal;
 }
