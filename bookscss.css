@@ -23,6 +23,7 @@
 @media screen and (max-width: 600px){
   .sidebaar {
     background: #000000;
+    font-size: 15px;
   }
 }
 
@@ -41,17 +42,16 @@
 }
 
 .books {
-  background: #FFFFFF;
+  background: #DDD0D0;
   border-radius: 10px;
-  min-height: 350px;
-  margin: 0px;
-  text-align: center;
+  min-height: 500px;
   width: 100%;
 }
 
 .tile-image {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+  text-align: center;
   width:100%;
 }
 
@@ -60,22 +60,17 @@
 }
 
 .tile-content {
-  font-size:12px;
-  height: 120px;
-  overflow: none;
+  font-size:15px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+
 }
 
-.tile-link {
-  background-color: #000000;
-  border-radius: 10px;
-  color: #FFFFFF;
-  padding: 15px 30px;
-}
-
-.title-link:hover {
-  background: gray;
-  text-decoration: none;
-  color: #FFFFFF;
+.tile-heading {
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .next {
@@ -99,15 +94,62 @@
 }
 
 .full-description-button {
-  padding-top: 10px;
+  padding: 10px;
   text-align: center;
+
 }
 
-.full-description2 {
-  padding: 0px 10px 10px;
+.modal-image {
+  text-align: center;
+  width: 40%;
 }
 
-.tile-margins {
-  padding-right: 0px;
-  padding-bottom: 0px;
+.card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 5;
+  }
+}
+
+.column-one {
+  width: 33%;
+  float: left;
+}
+
+.column-two {
+  width: 33%;
+  float:left;
+}
+
+.column-three {
+  width: 33%;
+  float: left;
+}
+
+.tile {
+  background: #FFFFFF;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-left: 20px;
+
+}
+/*.row {
+ -moz-column-width: 18em;
+ -webkit-column-width: 18em;
+ -moz-column-gap: 1em;
+ -webkit-column-gap:1em;
+
+}
+
+.item {
+ display: inline-block;
+ padding:  .25rem;
+ width:  100%;
+}
+
+.well {
+ position:relative;
+ display: block;
 }
