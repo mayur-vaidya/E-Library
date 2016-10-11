@@ -1,10 +1,11 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <title>Books AJAX</title>
   <link rel="stylesheet" href="bookscss.css">
-  <script src="booksjs.js"></script>
+  <!--<script src="booksjs.js"></script>-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="JQElibrary.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
@@ -21,20 +22,20 @@
   <div class="container-fluid">
     <div class="row books-area">
       <div class="col-xs-2" style="position:fixed;margin-top:30px;">
-          <a href="#" class="sidebaar" onclick="getBooks('php')">PHP Books</a>
-          <a href="#" class="sidebaar" onclick="getBooks('java')">Java Books</a>
-          <a href="#" class="sidebaar" onclick="getBooks('ruby')">Ruby Books</a>
-          <a href="#" class="sidebaar" onclick="getBooks('.net')">.Net Books</a>
-          <a href="#" class="sidebaar" onclick="getBooks('oracle')">Oracle Books</a>
-          <a href="#" class="sidebaar" onclick="getBooks('python')">Python Books</a>
-          <a href="#" class="sidebaar" onclick="getBooks('html')">Html Books</a>
-          <a href="#" class="sidebaar" onclick="getBooks('css')">CSS Books </a>
-          <a href="#" class="sidebaar" onclick="getBooks('jquery')">JQuery Books</a>
+          <a href="#" class="sidebaar" data-bookname="php">PHP Books</a>
+          <a href="#" class="sidebaar" data-bookname="java">Java Books</a>
+          <a href="#" class="sidebaar" data-bookname="ruby">Ruby Books</a>
+          <a href="#" class="sidebaar" data-bookname=".net">.Net Books</a>
+          <a href="#" class="sidebaar" data-bookname="oracle">Oracle Books</a>
+          <a href="#" class="sidebaar" data-bookname="python">Python Books</a>
+          <a href="#" class="sidebaar" data-bookname="html">Html Books</a>
+          <a href="#" class="sidebaar" data-bookname="css">CSS Books </a>
+          <a href="#" class="sidebaar" data-bookname="jquery">JQuery Books</a>
         <div>
 
         </div>
       </div>
-      <div class="col-xs-offset-2 col-xs-10 books">
+      <div class="col-xs-offset-2 col-xs-10 books" id="tileArea">
         <div class="row" style="margin-top:15px;">
           <div class="column-one" id="column1">
           </div>
@@ -42,13 +43,20 @@
           </div>
           <div class="column-three" id="column3">
           </div>
+          <div class="column-four" id="column4">
+          </div>
+
         </div>
-        <div align='center'><button type='button' class='next' onclick='previousPage()'> Previous</button>
-        <button type='button' class='next' onclick='nextPage()'> Next</button>
+        <div align='center'>
+          <button class='next' data-type="previous"> Previous</button>
+          <button class='next' data-type="next"> Next</button>
         </div>
       </div>
     </div>
   </div>
-
+  <div id='tile-modal'>
+  </div>
+  <div id='tile-full-modal'>
+  </div>
 </body>
 </html>
