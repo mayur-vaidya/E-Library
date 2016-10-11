@@ -48,9 +48,10 @@
   width: 100%;
 }
 
-.tile-image {
+.tileImage {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+  height: 300px;
   text-align: center;
   width:100%;
 }
@@ -61,6 +62,16 @@
 
 .tile-content {
   font-size:15px;
+  padding-top: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0;
+
+}
+
+.more(){
+  font-size:15px;
+  max-height: 100px;
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
@@ -68,6 +79,8 @@
 }
 
 .tile-heading {
+  font-size: 15px;
+  font-weight: bold;
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
@@ -86,9 +99,10 @@
 .detailing {
   color: #FFFFFF;
   text-align: center;
+  margin: auto 300px;
 }
 
-.full-description {
+.fullDescription {
   padding-top: 10px;
   text-align: left;
 }
@@ -104,6 +118,10 @@
   width: 40%;
 }
 
+.modal-content {
+
+}
+
 .card-columns {
   @include media-breakpoint-only(lg) {
     column-count: 4;
@@ -114,17 +132,22 @@
 }
 
 .column-one {
-  width: 33%;
+  width: 24.5%;
   float: left;
 }
 
 .column-two {
-  width: 33%;
+  width: 24.5%;
   float:left;
 }
 
 .column-three {
-  width: 33%;
+  width: 24.5%;
+  float: left;
+}
+
+.column-four {
+  width: 24.5%;
   float: left;
 }
 
@@ -133,8 +156,8 @@
   border-radius: 10px;
   margin-top: 20px;
   margin-left: 20px;
-
 }
+
 /*.row {
  -moz-column-width: 18em;
  -webkit-column-width: 18em;
@@ -152,4 +175,36 @@
 .well {
  position:relative;
  display: block;
+}*/
+
+.my-modal {
+   background-color: rgba(0, 0, 0, 0.4);
+   box-sizing: padding-box;
+   bottom: 0;
+   display: block;
+   opacity: 1;
+   left: 0;
+   position: fixed;
+   top: 80px;
+   right: 0;
 }
+
+ .my-modal img {
+   float: left;
+   min-height: 150px;
+ }
+
+ .my-modal p {
+   margin-left: 30%;
+   padding: 20px;
+   height: 300px;
+   overflow: auto;
+}
+
+.truncate {
+  
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  }
