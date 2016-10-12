@@ -1,0 +1,209 @@
+.navigation {
+  background: #D8914E;
+  color: #FFFFFF;
+  font size: 50px;
+  min-height: 100px;
+  text-align: center;
+}
+
+.heading {
+  font-size: 40px;
+  font-style: italic;
+  padding: 15px 30px;
+  text-align: center;
+}
+
+.sidebaar {
+  color: #D8914E;
+  display: block;
+  font-size: 20px;
+  padding: 10px 40px;
+}
+
+@media screen and (max-width: 600px){
+  .sidebaar {
+    background: #000000;
+    font-size: 15px;
+  }
+}
+
+.sidebaar:hover {
+  background: #F5F5F5;
+  text-decoration: none;
+}
+
+.books-area {
+  margin-top: 88px;
+}
+
+.book-details {
+  background: #DDD0D0;
+  min-height: 800px;
+}
+
+.books {
+  background: #DDD0D0;
+  border-radius: 10px;
+  min-height: 500px;
+  width: 100%;
+}
+
+.tile-image {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  height: 300px;
+  text-align: center;
+  width:100%;
+}
+
+.book-title {
+
+}
+
+.tile-content {
+  font-size:15px;
+  padding-top: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0;
+
+}
+
+.more(){
+  font-size:15px;
+  max-height: 100px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+}
+
+.tile-heading {
+  font-size: 15px;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.next {
+  background: white;
+  display: inline-block;
+  border-radius: 5px;
+  color: #D8914E;
+  font-size: 20px;
+  margin: 20px 50px;
+  padding: 10px 30px;
+}
+
+.detailing {
+  color: #FFFFFF;
+  text-align: center;
+  margin: auto 300px;
+}
+
+.full-description {
+  padding-top: 10px;
+  text-align: left;
+}
+
+.full-description-button {
+  padding: 10px;
+  text-align: center;
+
+}
+
+.modal-image {
+  text-align: center;
+  width: 40%;
+}
+
+.modal-content {
+
+}
+
+.card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 5;
+  }
+}
+
+.column-one {
+  width: 24.5%;
+  float: left;
+}
+
+.column-two {
+  width: 24.5%;
+  float:left;
+}
+
+.column-three {
+  width: 24.5%;
+  float: left;
+}
+
+.column-four {
+  width: 24.5%;
+  float: left;
+}
+
+.tile {
+  background: #FFFFFF;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+/*.row {
+ -moz-column-width: 18em;
+ -webkit-column-width: 18em;
+ -moz-column-gap: 1em;
+ -webkit-column-gap:1em;
+
+}
+
+.item {
+ display: inline-block;
+ padding:  .25rem;
+ width:  100%;
+}
+
+.well {
+ position:relative;
+ display: block;
+}*/
+
+.my-modal {
+   background-color: rgba(0, 0, 0, 0.4);
+   box-sizing: padding-box;
+   bottom: 0;
+   display: block;
+   opacity: 1;
+   left: 0;
+   position: fixed;
+   top: 80px;
+   right: 0;
+}
+
+ .my-modal img {
+   float: left;
+   min-height: 150px;
+ }
+
+ .my-modal p {
+   margin-left: 30%;
+   padding: 20px;
+   height: 300px;
+   overflow: auto;
+}
+
+.truncate {
+  overflow: hidden;
+  height: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  }

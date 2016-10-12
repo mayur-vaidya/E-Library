@@ -1,0 +1,87 @@
+<DOCTYPE html>
+<html>
+<head>
+<title> AJAX </title>
+</head>
+<body>
+  <div id="first">
+    Hello World!!! This will never gonna change/replaced...
+  </div>
+  <div>
+    <button type="button" onclick="loadDoc()"> Click me!
+    </button>
+    <p id="demo"> </p>
+  </div>
+  <h2>Arrangement of Data:</h2>
+  <div id="tableData">
+  </div>
+  <script>
+  function loadDoc(){
+    var allKeys, demo, m;
+    var allValues = [];
+    var x = new XMLHttpRequest();
+    x.onreadystatechange = function(){
+      if(this.status == 200 && this.readyState == 4)
+      {
+        document.getElementById("demo").innerHTML = this.responseText;
+        var data;
+        data = JSON.parse(this.responseText);
+        detailedData();
+        function detailedData(){
+          allKeys = Object.keys(data);
+          for(var i = 0; i < allKeys.length; i++)
+          {
+            demo = allKeys[i];
+            //console.log(demo);
+            allValues[i] = data[demo];
+          }
+          m = "<table align='center' border='1' style='width:500px;'><tr>";
+          for(var j = 0; j < allKeys.length ; j++)
+          {
+            m += "<td>";
+            m += allKeys[j];
+            m += "</td>"
+            m += "<td>";
+            if(allKeys[j] == "Image"){
+              m += "<img src='";
+              m +=  allValues[j];
+              m += "'>";
+              m += "</td>";
+            }
+            if(allKeys[j] == "Download"){
+              m += "<a href='";
+              m +=  allValues[j];
+              m += "'>";
+              m +=  allValues[j];
+              m += "</a>";
+              m += "</td>";
+            }
+            else{
+              m += allValues[j];
+              m += "</td>";
+            }
+
+            m += "</tr><tr>";
+          }
+          m += "</tr></table>";
+          //console.log(m);
+          document.getElementById("tableData").innerHTML = m;
+          //console.log(allValues);
+          //allValues = Object.values(data);
+          //console.log(Object.values(data));
+          //console.log(data["Error"]);
+          //console.log(data);
+          //  for (var property in data) {
+          //    output += data[property]+" ";
+          //  }
+          // console.log(output);
+        }
+      }
+    };
+    x.open("GET", "http://it-ebooks-api.info/v1/book/2279690981", true);
+    //x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    x.send();
+  }
+  </script>
+</body>
+</html>

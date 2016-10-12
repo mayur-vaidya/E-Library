@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Books AJAX</title>
+  <link rel="stylesheet" href="bookscss.css">
+  <!--<script src="booksjs.js"></script>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.1.3/mustache.min.js" ></script>
+  <script src="JQElibrary.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+</head>
+<body>
+  <header class="">
+  <div class="navbar navbar-fixed-top navigation">
+    <div class="heading">E - Library</div>
+  </div>
+  </header>
+  <div class="container-fluid">
+    <div class="row books-area">
+      <div class="col-xs-2" style="position:fixed;margin-top:30px;">
+          <a href="#" class="sidebaar" data-bookname="php">PHP Books</a>
+          <a href="#" class="sidebaar" data-bookname="java">Java Books</a>
+          <a href="#" class="sidebaar" data-bookname="ruby">Ruby Books</a>
+          <a href="#" class="sidebaar" data-bookname=".net">.Net Books</a>
+          <a href="#" class="sidebaar" data-bookname="oracle">Oracle Books</a>
+          <a href="#" class="sidebaar" data-bookname="python">Python Books</a>
+          <a href="#" class="sidebaar" data-bookname="html">Html Books</a>
+          <a href="#" class="sidebaar" data-bookname="css">CSS Books </a>
+          <a href="#" class="sidebaar" data-bookname="jquery">JQuery Books</a>
+        <div>
+
+        </div>
+      </div>
+      <div class="col-xs-offset-2 col-xs-10 books" id="tileArea">
+        <div class="row" style="margin-top:15px;">
+          <div class="column-one" id="column1">
+          </div>
+          <div class="column-two" id="column2">
+          </div>
+          <div class="column-three" id="column3">
+          </div>
+          <div class="column-four" id="column4">
+          </div>
+
+        </div>
+        <div align='center'>
+          <button class='next' data-type="previous"> Previous</button>
+          <button class='next' data-type="next"> Next</button>
+        </div>
+      </div>
+    </div>
+<script id="tile-modal-image" type="test/template">
+
+  <div class="modal fade" id="image-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div align="center">
+      <img style="width: 300px;height:400px" src="{{image}}"/>
+    </div>
+  </div>
+  </div>
+
+  </script>
+  <script id="tile-detailed-html" type="text/template">
+    <div>
+       <div class='tile'>
+         <img class='tile-image' src='{{image}}'/>
+         <p class='tile-heading'> {{title}}</p>
+         <p class='tile-content truncate'> {{description}}</p>
+          <div class='full-description-button'>
+              <button type='button' class='btn btn-primary full-description' data-id='{{rawdata}}'> Details </button>
+          </div>
+        </div>
+    </div>
+  </script>
+
+  <script id="tile-detailed-modal" type="text/template">
+    <div class="modal fade" id="complete-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title"> {{title}} </h4>
+          <h6> {{subtitle}} </h6>
+        </div>
+        <div class="modal-body">
+          <img style="float:left;" src="{{image}}"/>
+          <p style="margin-left:40%;"> {{description}} </p>
+          <ul style="clear:both;">
+            <li>ISBN No.: {{isbn}}</li>
+            <li>Author Name : {{author}} </li>
+            <li>Publisher Name : {{publisher}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  </script>
+
+
+    <div id="tile-image-modal">
+    </div>
+    <div id='tile-full-modal'>
+    </div>
+  </div>
+
+</body>
+</html>
