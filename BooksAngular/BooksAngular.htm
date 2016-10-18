@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Books AJAX</title>
+  <link rel="stylesheet" href="bookscss.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+  <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <script src="bookModule.js"> </script>
+  <script src="moduleBook.js"> </script>
+</head>
+<body ng-app="bookTiles" ng-controller="newColumnOne" >
+  <header>
+  <div class="navbar navbar-fixed-top navigation">
+    <div class="heading">E - Library</div>
+  </div>
+  </header>
+  <div class="container-fluid">
+    <div class="row books-area">
+      <div class="col-xs-2" style="position:fixed;margin-top:30px;">
+          <a href="#" class="sidebaar"  ng-click="bookPromise('php')">PHP Books</a>
+          <a href="#" class="sidebaar"  ng-click="bookPromise('java')">Java Books</a>
+          <a href="#" class="sidebaar"  ng-click="bookPromise('ruby')">Ruby Books</a>
+          <a href="#" class="sidebaar"  ng-click="bookPromise('.net')">.Net Books</a>
+          <a href="#" class="sidebaar"  ng-click="bookPromise('oracle')">Oracle Books</a>
+          <a href="#" class="sidebaar"  ng-click="bookPromise('python')">Python Books</a>
+          <a href="#" class="sidebaar"  ng-click="bookPromise('html')">Html Books</a>
+          <a href="#" class="sidebaar"  ng-click="bookPromise('css')">CSS Books </a>
+          <a href="#" class="sidebaar"  ng-click="bookPromise('jquery')">JQuery Books</a>
+        <div>
+
+        </div>
+      </div>
+      <div class="col-xs-offset-2 col-xs-10 books">
+        <div class="row"  style="margin-top:15px;margin-bottom:15px;">
+            <div>
+               <div class='tile' ng-repeat="bookObj in Books" style="width:23%;">
+                 <img class='tile-image' ng-src='{{bookObj.Image}}'/>
+                 <p class='tile-heading'> {{bookObj.Title}}</p>
+
+                 <p class='tile-content truncate'> {{bookObj.Description}}</p>
+                 <a class="more" style="color:blue;">&nbsp;&nbsp;more..</a>
+                  <div class='full-description-button'>
+                      <button type='button' class='btn btn-primary full-description' data-id=''> Details </button>
+                  </div>
+                </div>
+            </div>
+
+        </div>
+      </div>
+
+
+        <div align='center'>
+          <button class='next' data-type="previous" ng-click="previousPage()"> Previous</button>
+          <button class='next' data-type="next" ng-click="nextPage()"> Next</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="tile-image-modal">
+    </div>
+    <div id='tile-full-modal'>
+    </div>
+  </div>
+
+</body>
+</html>
